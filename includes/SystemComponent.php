@@ -7,7 +7,7 @@
  */
 class SystemComponent{
     var $settings;
-     public  static function getSettings(){
+     public function getSettings(){
         //系统变量
         $settings['dbhost']     =   'localhost';
         $settings['dbusername'] =   'root';

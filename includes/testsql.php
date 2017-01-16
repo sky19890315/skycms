@@ -7,7 +7,7 @@
  */
 include_once 'SystemComponent.php';
 include_once 'DbConnector.php';
-$pdo = new DbConnector();
+$pdo =DbConnector::getSettings();
 $sql = "select * from customers";
 $re = $pdo->queryAll($sql);
 var_dump($re);
