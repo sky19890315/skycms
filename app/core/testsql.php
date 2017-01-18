@@ -5,9 +5,8 @@
  * Date: 17-1-16
  * Time: 下午10:15
  */
-include_once 'SystemComponent.php';
+
 include_once 'DbConnector.php';
-$pdo =DbConnector::getSettings();
-$sql = "select * from customers";
+$pdo =DbConnector::getInstance();
+$sql = "select * from cmsarticles";
 $re = $pdo->queryAll($sql);
-var_dump($re);

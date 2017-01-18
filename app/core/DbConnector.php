@@ -5,11 +5,12 @@
  * Date: 17-1-16
  * Time: 下午8:59
  */
-include_once 'SystemComponent.php';
 
-class DbConnector extends SystemComponent{
-    var $pdo = null;
 
+
+class
+    DbConnector{
+        var $pdo = null;
     public  static function getInstance(){
         static $obj = null;
         if ($obj == null){
@@ -20,13 +21,14 @@ class DbConnector extends SystemComponent{
 
     //链接数据库
     function __construct(){
-        //从父类载入数据库设置
-        $settings = SystemComponent::getSettings();
+        //获得配置文件
+        $settings = include '../config/config.php';
         //取得变量
         $host   =   $settings['dbhost'];
         $db     =   $settings['dbname'];
-        $user   =   $settings['dbusername'];
-        $pass   =   $settings['dbpassword'];
+        $user   =   $settings['dbuser'];
+        $pass   =   $settings['dbpass'];
+        echo $host;
         //pdo调用数据库
         $pdo   =   new PDO('mysql:host='.$host.';dbname='.$db,$user,$pass);
         $this->pdo = $pdo;
